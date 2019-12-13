@@ -410,18 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
   m_Name: Scene Settings Profile
   m_EditorClassIdentifier: 
-  components:
-  - {fileID: -4617267727217016608}
-  - {fileID: -7744222270746988952}
-  - {fileID: 1894062498433892499}
-  - {fileID: 9163505342125030919}
-  - {fileID: 4112868685102404801}
-  - {fileID: -6062529570149941364}
-  - {fileID: 5214193395518008321}
-  - {fileID: -3373096135392274341}
-  - {fileID: -6468089397602425465}
-  - {fileID: 958018579340904921}
-  - {fileID: -8612818347257439190}
+  components: []
 --- !u!114 &958018579340904921
 MonoBehaviour:
   m_ObjectHideFlags: 3
