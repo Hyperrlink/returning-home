@@ -556,8 +556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3047536854016658885}
   - component: {fileID: -4767142708320681766}
-  - component: {fileID: -1682241507463141507}
-  - component: {fileID: 6920699963296856227}
+  - component: {fileID: 3347153440263337940}
   m_Layer: 0
   m_Name: Green Tree 1
   m_TagString: Untagged
@@ -614,7 +613,7 @@ CapsuleCollider:
   m_Height: 5.7096586
   m_Direction: 1
   m_Center: {x: 0.18093252, y: 2.7184105, z: -0.017479897}
---- !u!23 &-1682241507463141507
+--- !u!23 &3347153440263337940
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -652,14 +651,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &6920699963296856227
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022220994055634902}
-  m_Mesh: {fileID: -5495902117074765545, guid: a62f64bbb7ad1e643b13de0159d9724a, type: 3}
 --- !u!1 &2212555104971640236
 GameObject:
   m_ObjectHideFlags: 0

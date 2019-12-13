@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.75
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: cb59c61c34b859946a4313894fb4a228, type: 2}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.05640104, g: 0.14766996, b: 0.26830325, a: 1}
+  m_IndirectSpecularColor: {r: 0.091412604, g: 0.23789586, b: 0.42401952, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1662,8 +1662,8 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.462
-    m_Bias: 0.6
+    m_Strength: 0.401
+    m_Bias: 0.51
     m_NormalBias: 0.51
     m_NearPlane: 3
     m_CullingMatrixOverride:
@@ -2429,7 +2429,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 236185455
+  m_SortingLayerID: -1427968401
   m_SortingOrder: 32767
   m_TargetDisplay: 0
 --- !u!224 &1419680920
@@ -3637,14 +3637,14 @@ Terrain:
   m_TreeBillboardDistance: 297
   m_TreeCrossFadeLength: 35
   m_TreeMaximumFullLODCount: 1864
-  m_DetailObjectDistance: 168
-  m_DetailObjectDensity: 0.7
+  m_DetailObjectDistance: 205
+  m_DetailObjectDensity: 0.793
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
   m_ShadowCastingMode: 2
   m_DrawHeightmap: 1
-  m_DrawInstanced: 0
+  m_DrawInstanced: 1
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
   m_MaterialTemplate: {fileID: 2100000, guid: 638543b6c5669434cbe71e7373e47f78, type: 2}
@@ -3896,8 +3896,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 3986188387995331715, guid: 1f8f14f04195e2246be571692f0bfde0,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: 50b1df464806b1f4aa37a49c125b5bc1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99606ec7a2647854899ebaeca15fff4f, type: 3}
 --- !u!4 &1999371417 stripped
