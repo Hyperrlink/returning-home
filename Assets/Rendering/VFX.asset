@@ -109,6 +109,54 @@ MonoBehaviour:
   - {fileID: -2263654077922816484}
   - {fileID: 7680229809627206047}
   - {fileID: -5691197623543224051}
+  - {fileID: 2852532853173505842}
+--- !u!114 &2852532853173505842
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
+  m_Name: Bloom
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 6.18
+  threshold:
+    overrideState: 1
+    value: 1.06
+  softKnee:
+    overrideState: 1
+    value: 0.431
+  clamp:
+    overrideState: 1
+    value: 65475.36
+  diffusion:
+    overrideState: 1
+    value: 7
+  anamorphicRatio:
+    overrideState: 1
+    value: 0.39
+  color:
+    overrideState: 1
+    value: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
+  fastMode:
+    overrideState: 1
+    value: 0
+  dirtTexture:
+    overrideState: 1
+    value: {fileID: 0}
+    defaultState: 1
+  dirtIntensity:
+    overrideState: 1
+    value: 0
 --- !u!114 &7680229809627206047
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -174,7 +222,7 @@ MonoBehaviour:
     value: 0
   saturation:
     overrideState: 1
-    value: 1
+    value: 4
   brightness:
     overrideState: 1
     value: 0
@@ -183,7 +231,7 @@ MonoBehaviour:
     value: 0
   contrast:
     overrideState: 1
-    value: 6
+    value: 9
   mixerRedOutRedIn:
     overrideState: 1
     value: 100
@@ -213,13 +261,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: -0.021390373}
+    value: {x: 1, y: 1, z: 1, w: 0.10695187}
   gamma:
     overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: 0.10695187}
+    value: {x: 1, y: 1, z: 1, w: 0.171123}
   gain:
     overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: -0.24598931}
+    value: {x: 1, y: 1, z: 1, w: -0.22459893}
   masterCurve:
     overrideState: 1
     value:

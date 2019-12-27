@@ -54,6 +54,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -103,13 +104,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5761326071521984363}
-  m_LocalRotation: {x: -0.19089939, y: 0.4867892, z: 0.09312037, w: 0.847303}
-  m_LocalPosition: {x: -0.76241505, y: 5.932191, z: -0.042139914}
+  m_LocalRotation: {x: -0.427474, y: 0.005737915, z: 0.7951574, w: -0.43006724}
+  m_LocalPosition: {x: -0.65, y: 5.837, z: 0.01}
   m_LocalScale: {x: 1.1823314, y: 1.1823313, z: 1.1823313}
   m_Children: []
   m_Father: {fileID: 7038813515032634998}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 21.012001, y: 312.817, z: -132.446}
 --- !u!33 &1587630502924557860
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -132,6 +133,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -183,7 +185,7 @@ Transform:
   m_GameObject: {fileID: 6338176841818035301}
   m_LocalRotation: {x: -0, y: 0.40919486, z: -0, w: 0.91244704}
   m_LocalPosition: {x: -7.86, y: 3.37, z: -16.27}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 5573663649752309272}
   - {fileID: 7909132371143753142}
@@ -219,6 +221,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -268,13 +271,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7751257886829322033}
-  m_LocalRotation: {x: -0.025814584, y: 0.82708365, z: -0.55290157, w: -0.09780648}
+  m_LocalRotation: {x: -0.07226669, y: 0.42717162, z: -0.89849424, w: -0.07078152}
   m_LocalPosition: {x: -0.76241505, y: 5.932191, z: 1.9824656}
   m_LocalScale: {x: 1.1657368, y: 1.1657368, z: 1.1657367}
   m_Children: []
   m_Father: {fileID: 7038813515032634998}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 51.064003, y: 6.339, z: 174.022}
 --- !u!33 &69284113322083840
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -297,6 +300,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
