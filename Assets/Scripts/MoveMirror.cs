@@ -31,14 +31,20 @@ public class MoveMirror : MonoBehaviour
         Ray pointer = new Ray(cameraPos.position, cameraPos.forward);
 
         RaycastHit hit;
-        if (Physics.Raycast(pointer, out hit, maxDistance) && hit.collider.gameObject.tag == "MirrorStand")
+        if (Physics.Raycast(pointer, out hit, maxDistance) && (hit.collider.gameObject.tag == "MirrorStand" || hit.collider.gameObject.tag == "Mirror"))
         {
             pressE.enabled = true;
 
             if (Input.GetKey(KeyCode.E))
             {
                 ml.interacting = true;
-                Transform mirror = hit.collider.gameObject.transform.GetChild(0);
+
+                Transform mirror;
+
+                if (hit.collider.gameObject.tag == "MirrorStand")
+                    mirror = hit.collider.gameObject.transform.GetChild(0);
+                else
+                    mirror = hit.collider.gameObject.transform;
 
                 xRotation -= mouseY;
                 xRotation = Mathf.Clamp(xRotation, -70f, 70f);

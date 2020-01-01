@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 1046293251313359542}
   m_Layer: 0
   m_Name: LaserPointer
-  m_TagString: Untagged
+  m_TagString: Laser Pointer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,6 +88,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -120,16 +121,17 @@ LineRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9053575819800115323}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: d0a5bc3ccfcf6a540b1dcd3268c681ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -236,4 +238,6 @@ MonoBehaviour:
   startPos: {fileID: 1046293252425569853}
   laserLineRenderer: {fileID: 1046293251313359537}
   maxReflectionCount: 10
+  maxStepDistance: 200
   laserWidth: 0.1
+  currentReflection: 0

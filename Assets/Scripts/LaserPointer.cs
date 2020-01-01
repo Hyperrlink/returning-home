@@ -43,6 +43,8 @@ public class LaserPointer : MonoBehaviour
             return;
         }
 
+        bool stopped = false;
+
         Vector3 startingPosition = position;
         Vector3 endPosition;
 
@@ -50,14 +52,14 @@ public class LaserPointer : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Mirror")
         {
-            Debug.Log("Check1");
+            //Debug.Log("Check1");
             direction = Vector3.Reflect(direction, hit.normal);
             endPosition = hit.point;
         } else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag != "Mirror")
         {
-            //Debug.Log("Check2");
+            Debug.Log("Check2");
             endPosition = hit.point;
-            position = startingPosition;
+            stopped = true;
         }
         else
         {
@@ -73,7 +75,10 @@ public class LaserPointer : MonoBehaviour
 
         currentReflection += 2;
 
-        DrawPredictedReflectionPattern(endPosition, direction, reflectionsRemaining - 1);
+        if (!stopped)
+            DrawPredictedReflectionPattern(endPosition, direction, reflectionsRemaining - 1);
+        else
+            DrawPredictedReflectionPattern(startingPosition, direction, reflectionsRemaining - 1);
     }
 
 }
