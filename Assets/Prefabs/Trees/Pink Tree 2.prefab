@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1587630502924557860}
   - component: {fileID: 5474354469927401187}
   - component: {fileID: 7288899759464727268}
+  - component: {fileID: 3402006701314876110}
   m_Layer: 0
   m_Name: Icosphere
   m_TagString: Untagged
@@ -959,6 +960,20 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!64 &3402006701314876110
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761326071521984363}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &6338176841818035301
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,10 +983,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7038813515032634998}
-  - component: {fileID: 7233592599203075335}
   - component: {fileID: -1969857644317459185}
   - component: {fileID: 1027642478737377670}
   - component: {fileID: 5139900285556712528}
+  - component: {fileID: 3863719235639648862}
   m_Layer: 0
   m_Name: Pink Tree 2
   m_TagString: Untagged
@@ -995,20 +1010,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 48.308002, z: 0}
---- !u!136 &7233592599203075335
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6338176841818035301}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.47949237
-  m_Height: 6.139375
-  m_Direction: 1
-  m_Center: {x: -0.36745948, y: 2.7675533, z: -0.0000000014092137}
 --- !u!23 &-1969857644317459185
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4170,6 +4171,20 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: ac000000
+--- !u!64 &3863719235639648862
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6338176841818035301}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &7751257886829322033
 GameObject:
   m_ObjectHideFlags: 0
@@ -4182,6 +4197,7 @@ GameObject:
   - component: {fileID: 69284113322083840}
   - component: {fileID: 7150277318609609865}
   - component: {fileID: 7288168066096661805}
+  - component: {fileID: 8300536306323851502}
   m_Layer: 0
   m_Name: Icosphere.001
   m_TagString: Untagged
@@ -5083,3 +5099,17 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!64 &8300536306323851502
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7751257886829322033}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
