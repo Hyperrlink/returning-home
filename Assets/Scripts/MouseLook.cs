@@ -10,11 +10,15 @@ public class MouseLook : MonoBehaviour
     float xRotation = 0f;
 
     public Transform playerBody;
+    public Camera cam;
 
     void Start()
     {
 
         Cursor.lockState = CursorLockMode.Locked;
+
+        cam = GetComponent<Camera>();
+        cam.depthTextureMode = DepthTextureMode.Depth;
 
     }
 

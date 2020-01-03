@@ -8,8 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Water
-  m_Shader: {fileID: -6465566751694194690, guid: 61e2c9903e0032e4a8021bde8f52f3b9,
-    type: 3}
+  m_Shader: {fileID: 4800000, guid: bb1aa40fead5eff4faebff9ec5581ae0, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -200,8 +199,9 @@ Material:
     - _CullMode: 2
     - _CullModeForward: 2
     - _Cutoff: 0.5
+    - _DF: 1
     - _Depth: 0.3
-    - _DepthFactor: 1
+    - _DepthFactor: 1.2
     - _DepthOffsetEnable: 0
     - _DetailAlbedoScale: 1
     - _DetailIntensity: 1
@@ -214,7 +214,7 @@ Material:
     - _DisplacementLockObjectScale: 1
     - _DisplacementLockTilingScale: 1
     - _DisplacementMode: 0
-    - _DistortStrength: 1
+    - _DistortStrength: 0
     - _DistortionBlendMode: 0
     - _DistortionBlurBlendMode: 0
     - _DistortionBlurDstBlend: 0
@@ -323,10 +323,10 @@ Material:
     - _UVSec: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
-    - _WaveAmp: -3.32
+    - _WaveAmp: 0
     - _WaveIntensity: 1.5
     - _WaveScrollSpeed: 0.0081
-    - _WaveSpeed: 1
+    - _WaveSpeed: 0
     - _WorkflowMode: 1
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
@@ -338,11 +338,11 @@ Material:
     - Color_B94CEBD: {r: 0.37624598, g: 0.63481545, b: 0.8962264, a: 1}
     - _BaseColor: {r: 0.15419182, g: 0.88113326, b: 0.9339623, a: 0.4745098}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.15419187, g: 0.88113326, b: 0.9339623, a: 0.4745098}
+    - _Color: {r: 0.63403344, g: 0.7844429, b: 0.9811321, a: 0.7921569}
     - _DiffuseColor: {r: 0.38808295, g: 0.46644008, b: 0.4811321, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
-    - _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EdgeColor: {r: 0.32809716, g: 0.4821321, b: 0.6886792, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
