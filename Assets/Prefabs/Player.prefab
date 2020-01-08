@@ -100,6 +100,7 @@ MonoBehaviour:
   interacting: 0
   mouseSensitivity: 120
   playerBody: {fileID: 2988632072971053705}
+  cam: {fileID: 0}
 --- !u!114 &2988632072942857134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,10 +232,10 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 1024
-  movementSpeed: 6
+  movementSpeed: 5
+  sprintSpeed: 9
   gravity: -19.62
   groundDistance: 0.4
-  jumpHeight: 3
 --- !u!114 &2988632072971053719
 MonoBehaviour:
   m_ObjectHideFlags: 0

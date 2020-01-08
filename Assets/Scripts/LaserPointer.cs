@@ -57,7 +57,7 @@ public class LaserPointer : MonoBehaviour
             endPosition = hit.point;
         } else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag != "Mirror")
         {
-            Debug.Log("Check2");
+            //Debug.Log("Check2");
             endPosition = hit.point;
             stopped = true;
         }

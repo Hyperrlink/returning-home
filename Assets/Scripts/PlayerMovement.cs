@@ -14,9 +14,9 @@ public class PlayerMovement : MonoBehaviour
     bool grounded;
 
     public float movementSpeed;
+    public float sprintSpeed;
     public float gravity = -9.81f;
     public float groundDistance = 0.4f;
-    public float jumpHeight;
 
     void Start()
     {
@@ -37,7 +37,14 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * movementSpeed * Time.deltaTime);
+        float speed = movementSpeed;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = sprintSpeed;
+        }
+
+        controller.Move(move * speed * Time.deltaTime);
 
         GroundCheck();
 
