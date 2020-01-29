@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Mirror
   - MirrorStand
+  - Laser Pointer
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX

@@ -1,14 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
 
     public CharacterController controller;
     public Transform groundCheck;
     public LayerMask groundMask;
     public MouseLook mouseLook;
+    public GameObject playerCamera;
+    public Transform playerTransform;
+
+    public Transform[] playerSpawnPos;
 
     Vector3 velocity;
 
@@ -22,10 +27,20 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
 
+        
+
     }
 
     void Update()
     {
+
+        if (!hasAuthority)
+        {
+            playerCamera.SetActive(false);
+            return;
+        }
+
+        playerCamera.SetActive(true);
 
         Movement();
 
