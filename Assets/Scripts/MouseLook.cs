@@ -6,6 +6,8 @@ public class MouseLook : MonoBehaviour
 {
 
     public bool interacting = false;
+    public bool paused = false;
+
     public float mouseSensitivity;
     float xRotation = 0f;
 
@@ -15,9 +17,6 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         cam = GetComponent<Camera>();
         cam.depthTextureMode = DepthTextureMode.Depth;
 
@@ -26,7 +25,7 @@ public class MouseLook : MonoBehaviour
     void Update()
     {
 
-        if (!interacting)
+        if (!interacting && !paused)
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;

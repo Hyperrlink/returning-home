@@ -27,6 +27,10 @@
 			// Unity built-in - NOT required in Properties
 			sampler2D _CameraDepthTexture;
 
+			float4 _Color;
+			float4 _EdgeColor;
+			float  _DepthFactor;
+
 			struct vertexInput
 			{
 				float4 vertex : POSITION;
@@ -63,6 +67,8 @@
 				// multiply the edge color by the foam factor to get the edge,
 				// then add that to the color of the water
 				float4 col = _Color + foamLine * _EdgeColor;
+
+				return col;
 			}
 
 			ENDCG

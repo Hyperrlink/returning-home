@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public Transform groundCheck;
     public LayerMask groundMask;
+    public MouseLook mouseLook;
 
     Vector3 velocity;
 
@@ -32,25 +33,28 @@ public class PlayerMovement : MonoBehaviour
 
     void Movement() {
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        Vector3 move = transform.right * x + transform.forward * z;
-
-        float speed = movementSpeed;
-
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (!mouseLook.interacting && !mouseLook.paused)
         {
-            speed = sprintSpeed;
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+
+            Vector3 move = transform.right * x + transform.forward * z;
+
+            float speed = movementSpeed;
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                speed = sprintSpeed;
+            }
+
+            controller.Move(move * speed * Time.deltaTime);
+
+            GroundCheck();
+
+            velocity.y += gravity * Time.deltaTime;
+
+            controller.Move(velocity * Time.deltaTime);
         }
-
-        controller.Move(move * speed * Time.deltaTime);
-
-        GroundCheck();
-
-        velocity.y += gravity * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
 
     }
 
