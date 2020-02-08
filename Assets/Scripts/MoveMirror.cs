@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class MoveMirror : MonoBehaviour
+public class MoveMirror : NetworkBehaviour
 {
 
     public Transform cameraPos;
     public Text pressE;
     public MouseLook ml;
+
+    [SyncVar] private Quaternion syncMirrorRotation;
 
     public float maxDistance = 10f;
     public float mouseSensitivity;
@@ -25,10 +28,21 @@ public class MoveMirror : MonoBehaviour
     void Update()
     {
 
+        if (!hasAuthority)
+        {
+            return;
+        }
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         Ray pointer = new Ray(cameraPos.position, cameraPos.forward);
+        Transform mirror = null;
+
+        if (mirror != null)
+        {
+            RpcTransmitRotation(mirror.localRotation);
+        }
 
         RaycastHit hit;
         if (Physics.Raycast(pointer, out hit, maxDistance) && (hit.collider.gameObject.tag == "MirrorStand" || hit.collider.gameObject.tag == "Mirror"))
@@ -38,8 +52,6 @@ public class MoveMirror : MonoBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 ml.interacting = true;
-
-                Transform mirror;
 
                 if (hit.collider.gameObject.tag == "MirrorStand")
                     mirror = hit.collider.gameObject.transform.GetChild(0);
@@ -57,7 +69,7 @@ public class MoveMirror : MonoBehaviour
             } else if (Input.GetKeyUp(KeyCode.E))
             {
                 ml.interacting = false;
-            }            
+            }
 
         }
         else
@@ -65,6 +77,22 @@ public class MoveMirror : MonoBehaviour
             pressE.enabled = false;
             ml.interacting = false;
         }
+
+    }
+
+    [Command]
+    void CmdProvideRotationToServer(Quaternion mirrorRotation)
+    {
+
+        syncMirrorRotation = mirrorRotation;
+
+    }
+
+    [ClientRpc]
+    void RpcTransmitRotation(Quaternion mirrorRotation)
+    {
+
+        CmdProvideRotationToServer(mirrorRotation);
 
     }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class PlayerConnectionObject : NetworkBehaviour
 {
@@ -10,8 +11,25 @@ public class PlayerConnectionObject : NetworkBehaviour
 
     public Transform[] playerSpawnPos;
 
+    public int playerNum;
+
+    public NetworkManager networkManager;
+
+    public bool spawned = false;
 
     void Start()
+    {
+
+        DontDestroyOnLoad(gameObject);
+
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
+    }
+
+    void Update()
     {
 
         if (!isLocalPlayer)
@@ -19,13 +37,15 @@ public class PlayerConnectionObject : NetworkBehaviour
             return;
         }
 
-        CmdSpawnPlayer();
+        if (SceneManager.GetActiveScene().name == "Hub" && !spawned)
+        {
 
-    }
+            CmdSpawnPlayer();
+            spawned = true;
 
-    void Update()
-    {
-        
+        }
+
+
     }
 
     // Commands
@@ -44,13 +64,17 @@ public class PlayerConnectionObject : NetworkBehaviour
         if (NetworkServer.connections.Count == 1)
         {
             go = Instantiate(PlayerUnitPrefab, playerSpawnPos[0].position, playerSpawnPos[0].rotation);
+            playerNum = 1;
             Debug.Log("Server");
-        } else
+        }
+        else
         {
             go = Instantiate(PlayerUnitPrefab, playerSpawnPos[1].position, playerSpawnPos[1].rotation);
+            playerNum = 2;
+            Debug.Log("Client");
         }
 
-        
+
 
         NetworkServer.SpawnWithClientAuthority(go, connectionToClient);
 
