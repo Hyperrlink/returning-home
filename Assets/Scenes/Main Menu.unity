@@ -700,10 +700,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 540101775}
+      objectReference: {fileID: 1006240156}
     - target: {fileID: 1485932099123757114, guid: 3cef8a6f2e28f90458ea2d2acc022011,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: JoinGame
       objectReference: {fileID: 0}
     - target: {fileID: 1485932099123757115, guid: 3cef8a6f2e28f90458ea2d2acc022011,
         type: 3}
@@ -1079,7 +1080,7 @@ RectTransform:
   - {fileID: 81461012}
   - {fileID: 1698172394}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1156,7 +1157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &448079788
 PrefabInstance:
@@ -1400,7 +1401,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &540101775
 MonoBehaviour:
@@ -2201,7 +2202,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cef8a6f2e28f90458ea2d2acc022011, type: 3}
-<<<<<<< HEAD
 --- !u!1 &1006240154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,12 +2261,11 @@ MonoBehaviour:
     type: 3}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
-  m_OfflineScene: Main Menu
-  m_OnlineScene: Hub
+  m_OfflineScene: 
+  m_OnlineScene: 
   m_SpawnPrefabs:
   - {fileID: 2988632072971053707, guid: 06d9fa9af5664c6429c7c613e9a6fde4, type: 3}
-  - {fileID: 0}
-  - {fileID: 9053575819800115323, guid: 753e85b3f3c7a534494ab4957876f685, type: 3}
+  - {fileID: 4674874852111999278, guid: 9053936d948184f478b0f15519d8a54c, type: 3}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -3355,7 +3354,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1457563629 stripped
 RectTransform:
@@ -4380,7 +4379,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2004192835
 GameObject:
@@ -4814,11 +4813,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 540101775}
+      objectReference: {fileID: 1006240156}
     - target: {fileID: 1485932099123757114, guid: 3cef8a6f2e28f90458ea2d2acc022011,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenHostItems
+      value: StartHosting
       objectReference: {fileID: 0}
     - target: {fileID: 1485932099123757115, guid: 3cef8a6f2e28f90458ea2d2acc022011,
         type: 3}

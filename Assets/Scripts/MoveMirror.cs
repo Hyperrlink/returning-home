@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class MoveMirror : MonoBehaviour
+public class MoveMirror : NetworkBehaviour
 {
 
     public Transform cameraPos;
@@ -11,13 +12,13 @@ public class MoveMirror : MonoBehaviour
     public MouseLook ml;
     public PlayerMovement pm;
 
-<<<<<<< HEAD
     [SyncVar(hook = "OnRotationChanged")]
     private Quaternion syncMirrorRotation;
 
     Transform mirror = null;
 
     private Quaternion mirrorRotation;
+
 
     public float maxDistance = 10f;
     public float mouseSensitivity;
@@ -38,8 +39,7 @@ public class MoveMirror : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         Ray pointer = new Ray(cameraPos.position, cameraPos.forward);
-<<<<<<< HEAD
-        
+
         RaycastHit hit;
         if (Physics.Raycast(pointer, out hit, maxDistance) && (hit.collider.gameObject.tag == "MirrorStand" || hit.collider.gameObject.tag == "Mirror"))
         {
@@ -76,11 +76,12 @@ public class MoveMirror : MonoBehaviour
             ml.interacting = false;
         }
 
-        TransmitRotation(mirrorRotation);
+        if (!isServer)
+            CmdProvideRotationToServer(mirrorRotation);
 
     }
 
-<<<<<<< HEAD
+
     void OnRotationChanged(Quaternion newRotation)
     {
 
@@ -92,14 +93,11 @@ public class MoveMirror : MonoBehaviour
 
     }
 
-    [ClientCallback]
-    void TransmitRotation(Quaternion mirrorRotation)
+    [ClientRpc]
+    void RpcTransmitRotation(Quaternion mirrorRotation)
     {
 
-        if (hasAuthority)
-        {
-            CmdProvideRotationToServer(mirrorRotation);
-        }
+        mirror.localRotation = mirrorRotation;
 
     }
 
@@ -107,7 +105,7 @@ public class MoveMirror : MonoBehaviour
     void CmdProvideRotationToServer(Quaternion mirrorRotation)
     {
 
-        syncMirrorRotation = mirrorRotation;
+        RpcTransmitRotation(mirrorRotation);
 
     }
 

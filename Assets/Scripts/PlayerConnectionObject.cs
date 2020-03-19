@@ -10,6 +10,7 @@ public class PlayerConnectionObject : NetworkBehaviour
 
     public Transform[] playerSpawnPos;
 
+    public int playerNum;
 
     void Start()
     {
@@ -50,9 +51,9 @@ public class PlayerConnectionObject : NetworkBehaviour
             go = Instantiate(PlayerUnitPrefab, playerSpawnPos[1].position, playerSpawnPos[1].rotation);
         }
 
-<<<<<<< HEAD
         go.GetComponent<PlayerMovement>().playerNum = playerNum;
         go.GetComponent<PlayerMovement>().parent = gameObject;
+
 
         NetworkServer.SpawnWithClientAuthority(go, connectionToClient);
 
