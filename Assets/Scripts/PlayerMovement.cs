@@ -15,8 +15,6 @@ public class PlayerMovement : NetworkBehaviour
 
     public Transform[] playerSpawnPos;
 
-    public GameObject parent;
-
     Vector3 velocity;
 
     bool grounded;
@@ -25,7 +23,6 @@ public class PlayerMovement : NetworkBehaviour
     public float sprintSpeed;
     public float gravity = -9.81f;
     public float groundDistance = 0.4f;
-    public int playerNum;
 
     void Start()
     {
@@ -49,9 +46,10 @@ public class PlayerMovement : NetworkBehaviour
 
     }
 
-    void Movement() {
+    void Movement()
+    {
 
-        if (!mouseLook.interacting && !mouseLook.paused)
+        if (mouseLook.IsBlocked())
         {
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");

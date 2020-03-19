@@ -55,11 +55,28 @@ public class LaserPointer : MonoBehaviour
             //Debug.Log("Check1");
             direction = Vector3.Reflect(direction, hit.normal);
             endPosition = hit.point;
-        } else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag != "Mirror")
+        }
+        else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag != "Mirror" && hit.collider.gameObject.tag != "Sensor")
         {
             //Debug.Log("Check2");
             endPosition = hit.point;
             stopped = true;
+
+            GameObject[] s = GameObject.FindGameObjectsWithTag("Sensor");
+            foreach (GameObject g in s)
+            {
+
+                g.GetComponent<Sensor>().objToTrigger.GetComponent<Door>().triggered = false;
+
+            }
+
+        }
+        else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Sensor")
+        {
+            Debug.Log("Sensor");
+            endPosition = hit.point;
+            stopped = true;
+            hit.collider.gameObject.GetComponent<Sensor>().objToTrigger.GetComponent<Door>().triggered = true;
         }
         else
         {

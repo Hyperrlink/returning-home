@@ -9,6 +9,9 @@ TagManager:
   - MirrorStand
   - Laser Pointer
   - PlayerSpawn
+  - MenuController
+  - NetworkManager
+  - Sensor
   layers:
   - Default
   - TransparentFX

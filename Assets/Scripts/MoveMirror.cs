@@ -10,20 +10,16 @@ public class MoveMirror : NetworkBehaviour
     public Transform cameraPos;
     public Text pressE;
     public MouseLook ml;
-    public PlayerMovement pm;
 
-    [SyncVar(hook = "OnRotationChanged")]
-    private Quaternion syncMirrorRotation;
-
-    Transform mirror = null;
-
-    private Quaternion mirrorRotation;
-
+    [SyncVar] private Quaternion syncMirrorRotation;
 
     public float maxDistance = 10f;
     public float mouseSensitivity;
     float xRotation = 0f;
     float yRotation = 0f;
+
+    public Transform mirror = null;
+    public Quaternion newRotation;
 
     void Start()
     {
@@ -35,10 +31,20 @@ public class MoveMirror : NetworkBehaviour
     void Update()
     {
 
+        if (!hasAuthority)
+        {
+            return;
+        }
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         Ray pointer = new Ray(cameraPos.position, cameraPos.forward);
+
+        if (mirror != null && !isServer)
+        {
+            CmdProvideRotationToServer(newRotation);
+        }
 
         RaycastHit hit;
         if (Physics.Raycast(pointer, out hit, maxDistance) && (hit.collider.gameObject.tag == "MirrorStand" || hit.collider.gameObject.tag == "Mirror"))
@@ -49,12 +55,10 @@ public class MoveMirror : NetworkBehaviour
             {
                 ml.interacting = true;
 
-                Transform mirror;
-
                 if (hit.collider.gameObject.tag == "MirrorStand")
-                    mirror = hit.collider.gameObject.transform.GetChild(0);
+                    this.mirror = hit.collider.gameObject.transform.GetChild(0);
                 else
-                    mirror = hit.collider.gameObject.transform;
+                    this.mirror = hit.collider.gameObject.transform;
 
                 xRotation -= mouseY;
                 xRotation = Mathf.Clamp(xRotation, -70f, 70f);
@@ -62,12 +66,13 @@ public class MoveMirror : NetworkBehaviour
                 yRotation -= mouseX;
                 yRotation = Mathf.Clamp(yRotation, -70f, 70f);
 
-                mirror.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+                newRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+                mirror.localRotation = newRotation;
 
             } else if (Input.GetKeyUp(KeyCode.E))
             {
                 ml.interacting = false;
-            }            
+            }
 
         }
         else
@@ -76,28 +81,7 @@ public class MoveMirror : NetworkBehaviour
             ml.interacting = false;
         }
 
-        if (!isServer)
-            CmdProvideRotationToServer(mirrorRotation);
-
-    }
-
-
-    void OnRotationChanged(Quaternion newRotation)
-    {
-
-        if (mirror == null)
-            return;
-
-        Debug.Log("Got new rotation");
-        mirror.localRotation = newRotation;
-
-    }
-
-    [ClientRpc]
-    void RpcTransmitRotation(Quaternion mirrorRotation)
-    {
-
-        mirror.localRotation = mirrorRotation;
+        Debug.Log(mirror.position);
 
     }
 
@@ -106,6 +90,14 @@ public class MoveMirror : NetworkBehaviour
     {
 
         RpcTransmitRotation(mirrorRotation);
+
+    }
+
+    [ClientRpc]
+    void RpcTransmitRotation(Quaternion mirrorRotation)
+    {
+
+        mirror.localRotation = mirrorRotation;
 
     }
 

@@ -46,10 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerUnitPrefab: {fileID: 2988632072971053707, guid: 06d9fa9af5664c6429c7c613e9a6fde4,
     type: 3}
-  playerSpawnPos: []
-  playerNum: 0
-  networkManager: {fileID: 0}
-  spawned: 0
 --- !u!114 &1583292056464125527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,4 +78,4 @@ MonoBehaviour:
     i14: 0
     i15: 0
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
+  m_LocalPlayerAuthority: 0
