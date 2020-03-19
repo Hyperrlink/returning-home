@@ -10,6 +10,7 @@ public class MenuController : MonoBehaviour
     public GameObject clientItems;
     public GameObject mainItems;
     public GameObject optionsItems;
+
     public AudioSource audioSrc;
 
     private float musicVolume = 1f;
@@ -25,15 +26,15 @@ public class MenuController : MonoBehaviour
 
     }
 
+
+    // Volume control ----------------------------------------------------------
+
     void Update()
     {
 
         audioSrc.volume = musicVolume;
 
     }
-
-
-    // Volume control ----------------------------------------------------------
 
     public void SetVolume(float vol)
     {
@@ -67,22 +68,12 @@ public class MenuController : MonoBehaviour
     public void StartGame()
     {
 
-        if (SceneManager.GetActiveScene().name != "Main Menu")
-        {
-            return;
-        }
-
         SceneManager.LoadScene("Hub");
 
     }
 
     public void OpenHostItems()
     {
-
-        if (SceneManager.GetActiveScene().name != "Main Menu")
-        {
-            return;
-        }
 
         mainItems.SetActive(false);
         hostItems.SetActive(true);
@@ -92,11 +83,6 @@ public class MenuController : MonoBehaviour
     public void OpenClientItems()
     {
 
-        if (SceneManager.GetActiveScene().name != "Main Menu")
-        {
-            return;
-        }
-
         mainItems.SetActive(false);
         clientItems.SetActive(true);
 
@@ -104,11 +90,6 @@ public class MenuController : MonoBehaviour
 
     public void OpenOptionsItems()
     {
-
-        if (SceneManager.GetActiveScene().name != "Main Menu")
-        {
-            return;
-        }
 
         mainItems.SetActive(false);
         optionsItems.SetActive(true);

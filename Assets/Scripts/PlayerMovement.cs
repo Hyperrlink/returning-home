@@ -49,10 +49,9 @@ public class PlayerMovement : NetworkBehaviour
 
     }
 
-    void Movement()
-    {
+    void Movement() {
 
-        if (mouseLook.IsBlocked())
+        if (!mouseLook.interacting && !mouseLook.paused)
         {
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");

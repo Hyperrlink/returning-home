@@ -25,7 +25,7 @@ public class PauseMenuController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !mouseLook.waiting)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
 
             if (mouseLook.paused)

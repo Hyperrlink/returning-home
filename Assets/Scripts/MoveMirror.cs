@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Networking;
 
-public class MoveMirror : NetworkBehaviour
+public class MoveMirror : MonoBehaviour
 {
 
     public Transform cameraPos;
@@ -12,6 +11,7 @@ public class MoveMirror : NetworkBehaviour
     public MouseLook ml;
     public PlayerMovement pm;
 
+<<<<<<< HEAD
     [SyncVar(hook = "OnRotationChanged")]
     private Quaternion syncMirrorRotation;
 
@@ -34,15 +34,11 @@ public class MoveMirror : NetworkBehaviour
     void Update()
     {
 
-        if (!hasAuthority)
-        {
-            return;
-        }
-
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         Ray pointer = new Ray(cameraPos.position, cameraPos.forward);
+<<<<<<< HEAD
         
         RaycastHit hit;
         if (Physics.Raycast(pointer, out hit, maxDistance) && (hit.collider.gameObject.tag == "MirrorStand" || hit.collider.gameObject.tag == "Mirror"))
@@ -52,6 +48,8 @@ public class MoveMirror : NetworkBehaviour
             if (Input.GetKey(KeyCode.E))
             {
                 ml.interacting = true;
+
+                Transform mirror;
 
                 if (hit.collider.gameObject.tag == "MirrorStand")
                     mirror = hit.collider.gameObject.transform.GetChild(0);
@@ -69,7 +67,7 @@ public class MoveMirror : NetworkBehaviour
             } else if (Input.GetKeyUp(KeyCode.E))
             {
                 ml.interacting = false;
-            }
+            }            
 
         }
         else
@@ -82,6 +80,7 @@ public class MoveMirror : NetworkBehaviour
 
     }
 
+<<<<<<< HEAD
     void OnRotationChanged(Quaternion newRotation)
     {
 
