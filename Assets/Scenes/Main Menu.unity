@@ -2182,7 +2182,7 @@ MonoBehaviour:
   m_OnlineScene: Hub
   m_SpawnPrefabs:
   - {fileID: 2988632072971053707, guid: 06d9fa9af5664c6429c7c613e9a6fde4, type: 3}
-  - {fileID: 4674874852111999278, guid: 9053936d948184f478b0f15519d8a54c, type: 3}
+  - {fileID: 0}
   - {fileID: 9053575819800115323, guid: 753e85b3f3c7a534494ab4957876f685, type: 3}
   m_CustomConfig: 0
   m_MaxConnections: 4

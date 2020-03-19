@@ -371,6 +371,7 @@ MonoBehaviour:
   sprintSpeed: 8
   gravity: -19.62
   groundDistance: 0.4
+  playerNum: 0
 --- !u!114 &2988632072971053719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,6 +387,7 @@ MonoBehaviour:
   cameraPos: {fileID: 2988632072942857123}
   pressE: {fileID: 7535738331259381661}
   ml: {fileID: 2988632072942857135}
+  pm: {fileID: 2988632072971053704}
   maxDistance: 3
   mouseSensitivity: 25
 --- !u!114 &6387696100592658756

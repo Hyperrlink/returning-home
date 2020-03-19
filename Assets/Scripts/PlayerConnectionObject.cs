@@ -74,10 +74,11 @@ public class PlayerConnectionObject : NetworkBehaviour
             Debug.Log("Client");
         }
 
-
+        go.GetComponent<PlayerMovement>().playerNum = playerNum;
+        go.GetComponent<PlayerMovement>().parent = gameObject;
 
         NetworkServer.SpawnWithClientAuthority(go, connectionToClient);
 
-    }
+}
 
 }

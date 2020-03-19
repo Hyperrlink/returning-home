@@ -10,8 +10,14 @@ public class MoveMirror : NetworkBehaviour
     public Transform cameraPos;
     public Text pressE;
     public MouseLook ml;
+    public PlayerMovement pm;
 
-    [SyncVar] private Quaternion syncMirrorRotation;
+    [SyncVar(hook = "OnRotationChanged")]
+    private Quaternion syncMirrorRotation;
+
+    Transform mirror = null;
+
+    private Quaternion mirrorRotation;
 
     public float maxDistance = 10f;
     public float mouseSensitivity;
@@ -37,13 +43,7 @@ public class MoveMirror : NetworkBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         Ray pointer = new Ray(cameraPos.position, cameraPos.forward);
-        Transform mirror = null;
-
-        if (mirror != null)
-        {
-            RpcTransmitRotation(mirror.localRotation);
-        }
-
+        
         RaycastHit hit;
         if (Physics.Raycast(pointer, out hit, maxDistance) && (hit.collider.gameObject.tag == "MirrorStand" || hit.collider.gameObject.tag == "Mirror"))
         {
@@ -78,6 +78,30 @@ public class MoveMirror : NetworkBehaviour
             ml.interacting = false;
         }
 
+        TransmitRotation(mirrorRotation);
+
+    }
+
+    void OnRotationChanged(Quaternion newRotation)
+    {
+
+        if (mirror == null)
+            return;
+
+        Debug.Log("Got new rotation");
+        mirror.localRotation = newRotation;
+
+    }
+
+    [ClientCallback]
+    void TransmitRotation(Quaternion mirrorRotation)
+    {
+
+        if (hasAuthority)
+        {
+            CmdProvideRotationToServer(mirrorRotation);
+        }
+
     }
 
     [Command]
@@ -85,14 +109,6 @@ public class MoveMirror : NetworkBehaviour
     {
 
         syncMirrorRotation = mirrorRotation;
-
-    }
-
-    [ClientRpc]
-    void RpcTransmitRotation(Quaternion mirrorRotation)
-    {
-
-        CmdProvideRotationToServer(mirrorRotation);
 
     }
 
