@@ -196,7 +196,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -223,11 +223,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interacting: 0
+<<<<<<< HEAD
   paused: 0
   waiting: 0
+=======
+>>>>>>> parent of 449859a... 0.0.6
   mouseSensitivity: 120
   playerBody: {fileID: 2988632072971053705}
-  cam: {fileID: 2988632072942857121}
+  cam: {fileID: 0}
 --- !u!114 &2988632072942857134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,9 +325,13 @@ Transform:
   m_Children:
   - {fileID: 2988632073867978519}
   - {fileID: 2988632074132331060}
+<<<<<<< HEAD
   - {fileID: 5931873410189901563}
   - {fileID: 8959854214795056087}
   - {fileID: 7535738331717412211}
+=======
+  - {fileID: 2988632072942857123}
+>>>>>>> parent of 449859a... 0.0.6
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -363,12 +370,17 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 1024
+<<<<<<< HEAD
   mouseLook: {fileID: 2988632072942857135}
   playerCamera: {fileID: 2988632072942857124}
   playerTransform: {fileID: 2988632072971053705}
   playerSpawnPos: []
   movementSpeed: 4
   sprintSpeed: 8
+=======
+  movementSpeed: 5
+  sprintSpeed: 9
+>>>>>>> parent of 449859a... 0.0.6
   gravity: -19.62
   groundDistance: 0.4
   playerNum: 0
@@ -385,7 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPos: {fileID: 2988632072942857123}
-  pressE: {fileID: 7535738331259381661}
+  pressE: {fileID: 0}
   ml: {fileID: 2988632072942857135}
   pm: {fileID: 2988632072971053704}
   maxDistance: 3
@@ -554,6 +566,7 @@ Transform:
   m_Father: {fileID: 2988632072971053705}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &3313689317769056243
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,3 +2080,5 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8658124421376856834}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> parent of 449859a... 0.0.6

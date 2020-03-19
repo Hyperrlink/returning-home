@@ -9,6 +9,7 @@ public class PlayerMovement : NetworkBehaviour
     public CharacterController controller;
     public Transform groundCheck;
     public LayerMask groundMask;
+<<<<<<< HEAD
     public MouseLook mouseLook;
     public GameObject playerCamera;
     public Transform playerTransform;
@@ -16,6 +17,8 @@ public class PlayerMovement : NetworkBehaviour
     public Transform[] playerSpawnPos;
 
     public GameObject parent;
+=======
+>>>>>>> parent of 449859a... 0.0.6
 
     Vector3 velocity;
 
@@ -52,28 +55,32 @@ public class PlayerMovement : NetworkBehaviour
     void Movement()
     {
 
+<<<<<<< HEAD
         if (mouseLook.IsBlocked())
         {
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
+=======
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+>>>>>>> parent of 449859a... 0.0.6
 
-            Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 move = transform.right * x + transform.forward * z;
 
-            float speed = movementSpeed;
+        float speed = movementSpeed;
 
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                speed = sprintSpeed;
-            }
-
-            controller.Move(move * speed * Time.deltaTime);
-
-            GroundCheck();
-
-            velocity.y += gravity * Time.deltaTime;
-
-            controller.Move(velocity * Time.deltaTime);
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = sprintSpeed;
         }
+
+        controller.Move(move * speed * Time.deltaTime);
+
+        GroundCheck();
+
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
 
     }
 

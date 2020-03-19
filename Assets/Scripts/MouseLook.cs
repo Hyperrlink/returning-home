@@ -6,9 +6,12 @@ public class MouseLook : MonoBehaviour
 {
 
     public bool interacting = false;
+<<<<<<< HEAD
     public bool paused = false;
     public bool waiting = false;
 
+=======
+>>>>>>> parent of 449859a... 0.0.6
     public float mouseSensitivity;
     float xRotation = 0f;
 
@@ -18,6 +21,9 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         cam = GetComponent<Camera>();
         cam.depthTextureMode = DepthTextureMode.Depth;
 
@@ -26,7 +32,11 @@ public class MouseLook : MonoBehaviour
     void Update()
     {
 
+<<<<<<< HEAD
         if (IsBlocked())
+=======
+        if (!interacting)
+>>>>>>> parent of 449859a... 0.0.6
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
