@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8959854214795056087}
   - component: {fileID: 1046384071628954944}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: WaitUIController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4141935291564274139}
   - component: {fileID: 633929711562644004}
   - component: {fileID: 2862842800611162142}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 2988632072942857122}
   - component: {fileID: 2988632072942857135}
   - component: {fileID: 2988632072942857134}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Main Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 2988632072971053719}
   - component: {fileID: 6387696100592658756}
   - component: {fileID: -951414879801140855}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -371,6 +371,7 @@ MonoBehaviour:
   sprintSpeed: 8
   gravity: -19.62
   groundDistance: 0.4
+  playerNum: 0
 --- !u!114 &2988632072971053719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,7 +457,7 @@ GameObject:
   - component: {fileID: 2988632073867978519}
   - component: {fileID: 2988632073867978517}
   - component: {fileID: 2988632073867978518}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +534,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2988632074132331060}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6289434007585023859}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Pause Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +604,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8722243058848352000}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Host Items
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9002850920489130694}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Ingame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +681,7 @@ GameObject:
   - component: {fileID: 3663649184149960130}
   - component: {fileID: 5721552351240493512}
   - component: {fileID: 3353980983872621977}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -753,7 +754,7 @@ GameObject:
   - component: {fileID: 7535738331259381662}
   - component: {fileID: 7535738331259381660}
   - component: {fileID: 7535738331259381661}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Interact Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +832,7 @@ GameObject:
   - component: {fileID: 7535738331717412220}
   - component: {fileID: 7535738331717412221}
   - component: {fileID: 7535738331717412222}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -932,7 +933,7 @@ GameObject:
   - component: {fileID: 7535738332089887911}
   - component: {fileID: 7535738332089887904}
   - component: {fileID: 4607220984411615195}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1018,7 +1019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931873410189901563}
   - component: {fileID: 5536152864013448091}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PauseMenuController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1176,6 +1177,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 7900505545395206899, guid: b36b3288223b34946b2621921d968d18,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7900505545395206903, guid: b36b3288223b34946b2621921d968d18, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b36b3288223b34946b2621921d968d18, type: 3}
@@ -1196,6 +1202,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Title (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715268217152875028, guid: 0f365ac7f7cda5946a399506a30915f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1715268217152875029, guid: 0f365ac7f7cda5946a399506a30915f5,
         type: 3}
@@ -1373,6 +1384,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Title
       objectReference: {fileID: 0}
+    - target: {fileID: 1715268217152875028, guid: 0f365ac7f7cda5946a399506a30915f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1715268217152875029, guid: 0f365ac7f7cda5946a399506a30915f5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1508,6 +1524,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ButtonDisconnect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485932099123757108, guid: 3cef8a6f2e28f90458ea2d2acc022011,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1485932099123757114, guid: 3cef8a6f2e28f90458ea2d2acc022011,
         type: 3}
@@ -1679,6 +1700,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1485932100726537846, guid: 3cef8a6f2e28f90458ea2d2acc022011,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cef8a6f2e28f90458ea2d2acc022011, type: 3}
 --- !u!224 &5467823028526940312 stripped
@@ -1698,6 +1724,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Button (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485932099123757108, guid: 3cef8a6f2e28f90458ea2d2acc022011,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1485932099123757114, guid: 3cef8a6f2e28f90458ea2d2acc022011,
         type: 3}
@@ -1869,6 +1900,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1485932100726537846, guid: 3cef8a6f2e28f90458ea2d2acc022011,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cef8a6f2e28f90458ea2d2acc022011, type: 3}
 --- !u!224 &7200666622617662558 stripped
@@ -1888,6 +1924,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485932099123757108, guid: 3cef8a6f2e28f90458ea2d2acc022011,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1485932099123757114, guid: 3cef8a6f2e28f90458ea2d2acc022011,
         type: 3}
@@ -2058,6 +2099,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485932100726537846, guid: 3cef8a6f2e28f90458ea2d2acc022011,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cef8a6f2e28f90458ea2d2acc022011, type: 3}

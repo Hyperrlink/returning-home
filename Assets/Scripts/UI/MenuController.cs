@@ -23,6 +23,9 @@ public class MenuController : MonoBehaviour
 
         mainItems.SetActive(true);
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
     }
 
     void Update()

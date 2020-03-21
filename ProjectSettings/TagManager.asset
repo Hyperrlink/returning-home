@@ -12,6 +12,7 @@ TagManager:
   - MenuController
   - NetworkManager
   - Sensor
+  - ForestLevelPadTrigger
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - PostProccessing
   - Mirror
   - Ground
-  - 
+  - Player
   - 
   - 
   - 
