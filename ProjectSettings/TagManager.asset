@@ -13,6 +13,9 @@ TagManager:
   - NetworkManager
   - Sensor
   - ForestLevelPadTrigger
+  - EndLevelPadTrigger
+  - WaterLevelPadTrigger
+  - PlayerConnectionObject
   layers:
   - Default
   - TransparentFX

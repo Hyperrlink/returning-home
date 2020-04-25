@@ -67,7 +67,7 @@ public class CustomNetworkManager : NetworkManager
 
     void SetupOtherSceneButtons()
     {
-
+        return;
         GameObject.Find("ButtonDisconnect").GetComponent<Button>().onClick.RemoveAllListeners();
         GameObject.Find("ButtonDisconnect").GetComponent<Button>().onClick.AddListener(NetworkManager.singleton.StopServer);
 

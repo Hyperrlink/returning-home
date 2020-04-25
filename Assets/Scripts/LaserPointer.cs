@@ -63,12 +63,26 @@ public class LaserPointer : MonoBehaviour
             stopped = true;
 
             GameObject[] s = GameObject.FindGameObjectsWithTag("Sensor");
-            foreach (GameObject g in s)
+            if (s.Length > 0)
             {
+                foreach (GameObject g in s)
+                {
 
-                g.GetComponent<Sensor>().objToTrigger.GetComponent<Door>().triggered = false;
+                    GameObject o = g.GetComponent<Sensor>().objToTrigger.gameObject;
 
+                    if (o.name == "Door")
+                    {
+
+                        o.GetComponent<Door>().triggered = false;
+
+                    } else if (o.name == "End Level")
+                    {
+                        o.GetComponent<EndLevel>().triggered = false;
+                    }
+
+                }
             }
+            
 
         }
         else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "Sensor")
@@ -76,7 +90,20 @@ public class LaserPointer : MonoBehaviour
             Debug.Log("Sensor");
             endPosition = hit.point;
             stopped = true;
-            hit.collider.gameObject.GetComponent<Sensor>().objToTrigger.GetComponent<Door>().triggered = true;
+
+            GameObject o = hit.collider.gameObject.GetComponent<Sensor>().objToTrigger.gameObject;
+
+            if (o.name == "Door")
+            {
+
+                o.GetComponent<Door>().triggered = true;
+
+            }
+            else if (o.name == "End Level")
+            {
+                o.GetComponent<EndLevel>().triggered = true;
+            }
+
         }
         else
         {

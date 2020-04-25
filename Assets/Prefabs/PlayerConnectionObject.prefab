@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1583292056464125527}
   m_Layer: 0
   m_Name: PlayerConnectionObject
-  m_TagString: Untagged
+  m_TagString: PlayerConnectionObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +46,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerUnitPrefab: {fileID: 2988632072971053707, guid: 06d9fa9af5664c6429c7c613e9a6fde4,
     type: 3}
+  playerSpawnPos: []
+  playerNum: 0
+  networkManager: {fileID: 0}
+  startedServer: 0
+  hubSpawned: 0
+  forestSpawned: 0
+  waterSpawned: 0
+  completedForestLevel: 0
+  completedWaterLevel: 0
+  completedCastleLevel: 0
+  completedRockLevel: 0
 --- !u!114 &1583292056464125527
 MonoBehaviour:
   m_ObjectHideFlags: 0

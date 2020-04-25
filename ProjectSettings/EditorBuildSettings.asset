@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Forest Level.unity
     guid: 6387c278291d3934bb9491b5d06f2266
+  - enabled: 1
+    path: Assets/Scenes/Water Level.unity
+    guid: 1bfa9c3dcfa1b3a48a936e8673f24abf
   m_configObjects: {}

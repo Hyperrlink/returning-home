@@ -80,10 +80,13 @@ MonoBehaviour:
   forestPadTriggers:
   - {fileID: 0}
   - {fileID: 0}
+  waterPadTriggers:
+  - {fileID: 0}
+  - {fileID: 0}
   player1Ready: 0
   player2Ready: 0
-  radius: 2
-  maxDistance: 2
+  radius: 1
+  maxDistance: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 2048
