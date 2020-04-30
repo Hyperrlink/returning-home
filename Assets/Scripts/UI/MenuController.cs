@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Networking;
 
 public class MenuController : MonoBehaviour
 {
@@ -11,11 +13,46 @@ public class MenuController : MonoBehaviour
     public GameObject mainItems;
     public GameObject optionsItems;
     public AudioSource audioSrc;
+    public InputField inputPlayerName;
 
-    private float musicVolume = 1f;
+    public CustomNetworkManager nm;
+
+    public Button startHost;
+    public Button startClient;
+
+    public float musicVolume = 1f;
+    public int qualityIndex;
+
+    public Slider volumeSlider;
+    public Dropdown qualityDropdown;
+    public string playerName;
 
     void Start()
     {
+
+        nm = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<CustomNetworkManager>();
+
+        SetupMenuSceneButtons();
+
+        try
+        {
+            OptionsData op = SaveSystem.LoadOptionsData();
+
+            musicVolume = op.volume;
+            qualityIndex = op.qualityIndex;
+
+            volumeSlider.value = musicVolume;
+            qualityDropdown.value = qualityIndex;
+
+            NameData nd = SaveSystem.LoadNameData();
+
+            playerName = nd.name;
+            inputPlayerName.text = playerName;
+
+        } catch (UnityException e)
+        {
+
+        }
 
         hostItems.SetActive(false);
         clientItems.SetActive(false);
@@ -33,6 +70,19 @@ public class MenuController : MonoBehaviour
 
         audioSrc.volume = musicVolume;
 
+        playerName = inputPlayerName.text;
+
+    }
+
+    void SetupMenuSceneButtons()
+    {
+
+        startHost.onClick.RemoveAllListeners();
+        startHost.onClick.AddListener(nm.StartHosting);
+
+        startClient.onClick.RemoveAllListeners();
+        startClient.onClick.AddListener(nm.JoinGame);
+
     }
 
 
@@ -47,10 +97,11 @@ public class MenuController : MonoBehaviour
 
     // Quality control ---------------------------------------------------------
 
-    public void SetQuality(int qualityIndex)
+    public void SetQuality(int qi)
     {
 
-        QualitySettings.SetQualityLevel(qualityIndex);
+        qualityIndex = qi;
+        QualitySettings.SetQualityLevel(qi);
 
     }
 
@@ -58,6 +109,20 @@ public class MenuController : MonoBehaviour
 
     public void Back()
     {
+
+        hostItems.SetActive(false);
+        clientItems.SetActive(false);
+        optionsItems.SetActive(false);
+
+        mainItems.SetActive(true);
+
+    }
+
+    public void Apply()
+    {
+
+        SaveSystem.SaveOptionsData(this);
+        SaveSystem.SaveNameData(this);
 
         hostItems.SetActive(false);
         clientItems.SetActive(false);

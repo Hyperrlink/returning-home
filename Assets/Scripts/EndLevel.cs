@@ -11,6 +11,10 @@ public class EndLevel : NetworkBehaviour
 
     public Transform[] endLevelPadTriggers;
 
+    PlayerConnectionObject[] pcos;
+    PlayerConnectionObject hostPlayer;
+    bool gotHost = false;
+
     public bool player1Ready = false;
     public bool player2Ready = false;
 
@@ -22,18 +26,19 @@ public class EndLevel : NetworkBehaviour
     void Start()
     {
 
-        GameObject[] temp = GameObject.FindGameObjectsWithTag("EndLevelPadTrigger");
+        // Get end level pad triggers
+        GameObject[] temp1 = GameObject.FindGameObjectsWithTag("EndLevelPadTrigger");
 
         endLevelPadTriggers = new Transform[2];
 
-        if (temp.Length == 0)
+        if (temp1.Length == 0)
         {
             Debug.Log("Shit");
         }
         else
         {
-            endLevelPadTriggers[0] = temp[0].transform;
-            endLevelPadTriggers[1] = temp[1].transform;
+            endLevelPadTriggers[0] = temp1[0].transform;
+            endLevelPadTriggers[1] = temp1[1].transform;
         }
 
     }
@@ -44,6 +49,31 @@ public class EndLevel : NetworkBehaviour
         if (!hasAuthority)
         {
             return;
+        }
+
+        // Get host player's gameobject
+        if (!gotHost)
+        {
+            pcos = new PlayerConnectionObject[2];
+
+            GameObject[] temp = GameObject.FindGameObjectsWithTag("PlayerConnectionObject");
+
+            if (NetworkServer.connections.Count == 2)
+            {
+                pcos[0] = temp[0].GetComponent<PlayerConnectionObject>();
+                pcos[1] = temp[1].GetComponent<PlayerConnectionObject>();
+
+                if (pcos[0].playerNum == 1)
+                    hostPlayer = pcos[0];
+                else
+                    hostPlayer = pcos[1];
+            }
+            else
+            {
+                hostPlayer = temp[0].GetComponent<PlayerConnectionObject>();
+            }
+
+            gotHost = true;
         }
 
         if (triggered)
@@ -67,6 +97,17 @@ public class EndLevel : NetworkBehaviour
             {
 
                 Debug.Log("Everyone is ready!");
+
+                string sceneName = SceneManager.GetActiveScene().name;
+
+                if (sceneName == "Forest Level")
+                    hostPlayer.completedForestLevel = true;
+                else if (sceneName == "Water Level")
+                    hostPlayer.completedWaterLevel = true;
+                else if (sceneName == "Castle Level")
+                    hostPlayer.completedCastleLevel = true;
+                else if (sceneName == "Rock Level")
+                    hostPlayer.completedRockLevel = true;
 
                 NetworkManager.singleton.ServerChangeScene("Hub");
                 SceneManager.LoadScene("Hub");

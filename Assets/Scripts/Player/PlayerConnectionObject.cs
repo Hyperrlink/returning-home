@@ -12,6 +12,7 @@ public class PlayerConnectionObject : NetworkBehaviour
     public Transform[] playerSpawnPos;
 
     public int playerNum = 0;
+    public string playerName;
 
     public NetworkManager networkManager;
 
@@ -54,16 +55,13 @@ public class PlayerConnectionObject : NetworkBehaviour
             SaveSystem.SaveLevelData(this);
             saved = true;
         }
-        else
-        {
-            saved = false;
-        }
 
         if (SceneManager.GetActiveScene().name == "Hub" && !hubSpawned)
         {
 
             CmdSpawnPlayer();
             hubSpawned = true;
+            saved = false;
             forestSpawned = false;
             waterSpawned = false;
 
@@ -134,7 +132,7 @@ public class PlayerConnectionObject : NetworkBehaviour
             go = Instantiate(PlayerUnitPrefab, playerSpawnPos[0].position, playerSpawnPos[0].rotation);
             playerNum = 1;
             go.GetComponent<PlayerMovement>().playerNum = 1;
-            Debug.Log("Server");
+            //Debug.Log("Server");
 
             // Load save
             LevelData data = SaveSystem.LoadLevelData();
@@ -142,13 +140,18 @@ public class PlayerConnectionObject : NetworkBehaviour
             completedWaterLevel = data.completedWaterLevel;
             completedCastleLevel = data.completedCastleLevel;
             completedRockLevel = data.completedRockLevel;
+
+            NameData nameData = SaveSystem.LoadNameData();
+            playerName = nameData.name;
+
+            go.GetComponent<PlayerMovement>().playerName = playerName;
         }
         else if ((NetworkServer.connections.Count == 2 && !startedServer) || playerNum == 2)
         {
             go = Instantiate(PlayerUnitPrefab, playerSpawnPos[1].position, playerSpawnPos[1].rotation);
             playerNum = 2;
             go.GetComponent<PlayerMovement>().playerNum = 2;
-            Debug.Log("Client");
+            //Debug.Log("Client");
 
             // Load save
             // Get host player's gameobject
@@ -172,6 +175,11 @@ public class PlayerConnectionObject : NetworkBehaviour
             completedWaterLevel = hostPlayer.completedWaterLevel;
             completedCastleLevel = hostPlayer.completedCastleLevel;
             completedRockLevel = hostPlayer.completedRockLevel;
+
+            NameData nameData = SaveSystem.LoadNameData();
+            playerName = nameData.name;
+
+            go.GetComponent<PlayerMovement>().playerName = playerName;
         }
         else
         {
@@ -179,7 +187,7 @@ public class PlayerConnectionObject : NetworkBehaviour
             go = Instantiate(PlayerUnitPrefab, playerSpawnPos[0].position, playerSpawnPos[0].rotation);
             playerNum = 1;
             go.GetComponent<PlayerMovement>().playerNum = 1;
-            Debug.Log("Server");
+            //Debug.Log("Server");
 
             // Load save
             LevelData data = SaveSystem.LoadLevelData();
@@ -187,6 +195,11 @@ public class PlayerConnectionObject : NetworkBehaviour
             completedWaterLevel = data.completedWaterLevel;
             completedCastleLevel = data.completedCastleLevel;
             completedRockLevel = data.completedRockLevel;
+
+            NameData nameData = SaveSystem.LoadNameData();
+            playerName = nameData.name;
+
+            go.GetComponent<PlayerMovement>().playerName = playerName;
 
         }
 

@@ -21,4 +21,14 @@ public class LevelData
 
     }
 
+    public LevelData()
+    {
+
+        completedForestLevel = false;
+        completedWaterLevel = false;
+        completedCastleLevel = false;
+        completedRockLevel = false;
+
+    }
+
 }

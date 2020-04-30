@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CustomNetworkManager : NetworkManager
-{   
+{
 
     public void StartHosting()
     {
@@ -36,44 +37,10 @@ public class CustomNetworkManager : NetworkManager
     void SetPort()
     {
 
-        NetworkManager.singleton.networkPort = 7777;
+        NetworkManager.singleton.networkPort = 1243;
 
     }
 
-    private void OnLevelWasLoaded(int level)
-    {
-        
-        if(level == 0)
-        {
-            SetupMenuSceneButtons();
-        } else
-        {
-            SetupOtherSceneButtons();
-        }
-
-    }
-
-    void SetupMenuSceneButtons()
-    {
-
-        return;
-        GameObject.Find("ButtonStartHost").GetComponent<Button>().onClick.RemoveAllListeners();
-        GameObject.Find("ButtonStartHost").GetComponent<Button>().onClick.AddListener(StartHosting);
-
-        GameObject.Find("ButtonStartClient").GetComponent<Button>().onClick.RemoveAllListeners();
-        GameObject.Find("ButtonStartClient").GetComponent<Button>().onClick.AddListener(JoinGame);
-
-    }
-
-    void SetupOtherSceneButtons()
-    {
-        return;
-        GameObject.Find("ButtonDisconnect").GetComponent<Button>().onClick.RemoveAllListeners();
-        GameObject.Find("ButtonDisconnect").GetComponent<Button>().onClick.AddListener(NetworkManager.singleton.StopServer);
-
-        GameObject.Find("ButtonOtherDisconnect").GetComponent<Button>().onClick.RemoveAllListeners();
-        GameObject.Find("ButtonOtherDisconnect").GetComponent<Button>().onClick.AddListener(NetworkManager.singleton.StopClient);
-
-    }
+    
 
 }

@@ -83,10 +83,13 @@ MonoBehaviour:
   waterPadTriggers:
   - {fileID: 0}
   - {fileID: 0}
+  materials:
+  - {fileID: 2100000, guid: 22fe74df978b1a145a8e349cbf15619c, type: 2}
+  - {fileID: 2100000, guid: 54d7fadf9682e7c47ab51da74bb13106, type: 2}
   player1Ready: 0
   player2Ready: 0
-  radius: 1
-  maxDistance: 1
+  radius: 1.5
+  maxDistance: 1.5
   playerLayer:
     serializedVersion: 2
     m_Bits: 2048

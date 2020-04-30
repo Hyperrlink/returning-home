@@ -25,11 +25,12 @@ public class PlayerMovement : NetworkBehaviour
     public float groundDistance = 0.4f;
 
     public int playerNum;
+    public string playerName;
 
     void Start()
     {
 
-        
+        gameObject.GetComponentInChildren<PauseMenuController>().playerNum = playerNum;
 
     }
 
