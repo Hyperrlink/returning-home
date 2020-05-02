@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Water Level.unity
     guid: 1bfa9c3dcfa1b3a48a936e8673f24abf
+  - enabled: 1
+    path: Assets/Scenes/Rock Level.unity
+    guid: 35f9301249a3cc447b5b1b39969d19fc
   m_configObjects: {}

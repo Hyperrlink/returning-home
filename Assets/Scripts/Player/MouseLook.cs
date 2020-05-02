@@ -15,16 +15,32 @@ public class MouseLook : MonoBehaviour
     public Transform playerBody;
     public Camera cam;
 
+    public float musicVolume = 1;
+
     void Start()
     {
 
         cam = GetComponent<Camera>();
         cam.depthTextureMode = DepthTextureMode.Depth;
 
+        try
+        {
+            OptionsData op = SaveSystem.LoadOptionsData();
+
+            musicVolume = op.volume;
+
+        }
+        catch (UnityException e)
+        {
+
+        }
+
     }
 
     void Update()
     {
+
+        gameObject.GetComponent<AudioSource>().volume = musicVolume;
 
         if (IsBlocked())
         {

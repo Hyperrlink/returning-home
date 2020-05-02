@@ -11,6 +11,7 @@ public class PlayerMovement : NetworkBehaviour
     public LayerMask groundMask;
     public MouseLook mouseLook;
     public GameObject playerCamera;
+    public GameObject playerBody;
     public Transform playerTransform;
 
     public Transform[] playerSpawnPos;
@@ -39,11 +40,15 @@ public class PlayerMovement : NetworkBehaviour
 
         if (!hasAuthority)
         {
+            playerCamera.GetComponent<AudioListener>().enabled = false;
             playerCamera.SetActive(false);
+            playerBody.SetActive(true);
             return;
         }
 
         playerCamera.SetActive(true);
+        playerCamera.GetComponent<AudioListener>().enabled = true;
+        playerBody.SetActive(false);
 
         Movement();
 

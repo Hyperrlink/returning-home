@@ -20,6 +20,7 @@ public class PlayerConnectionObject : NetworkBehaviour
     public bool hubSpawned = false;
     public bool forestSpawned = false;
     public bool waterSpawned = false;
+    public bool rockSpawned = false;
 
     // Completed levels
     public bool completedForestLevel;
@@ -64,6 +65,7 @@ public class PlayerConnectionObject : NetworkBehaviour
             saved = false;
             forestSpawned = false;
             waterSpawned = false;
+            rockSpawned = false;
 
         }
 
@@ -74,6 +76,7 @@ public class PlayerConnectionObject : NetworkBehaviour
             forestSpawned = true;
             hubSpawned = false;
             waterSpawned = false;
+            rockSpawned = false;
 
         }
 
@@ -84,9 +87,20 @@ public class PlayerConnectionObject : NetworkBehaviour
             waterSpawned = true;
             forestSpawned = false;
             hubSpawned = false;
+            rockSpawned = false;
 
         }
 
+        if (SceneManager.GetActiveScene().name == "Rock Level" && !rockSpawned)
+        {
+
+            CmdSpawnPlayer();
+            rockSpawned = true;
+            waterSpawned = false;
+            forestSpawned = false;
+            hubSpawned = false;
+
+        }
 
     }
 

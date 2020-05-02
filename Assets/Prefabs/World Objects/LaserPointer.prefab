@@ -239,7 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {fileID: 1046293252425569853}
   laserLineRenderer: {fileID: 1046293251313359537}
-  maxReflectionCount: 10
+  maxReflectionCount: 30
   maxStepDistance: 200
   laserWidth: 0.1
   currentReflection: 0

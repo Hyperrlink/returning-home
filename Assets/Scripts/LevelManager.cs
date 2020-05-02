@@ -9,6 +9,7 @@ public class LevelManager : NetworkBehaviour
 
     public Transform[] forestPadTriggers;
     public Transform[] waterPadTriggers;
+    public Transform[] rockPadTriggers;
 
     PlayerConnectionObject[] pcos;
     PlayerConnectionObject hostPlayer;
@@ -20,6 +21,8 @@ public class LevelManager : NetworkBehaviour
     public bool player2ReadyF = false;
     public bool player1ReadyW = false;
     public bool player2ReadyW = false;
+    public bool player1ReadyR = false;
+    public bool player2ReadyR = false;
 
     public float radius;
     public float maxDistance;
@@ -84,6 +87,14 @@ public class LevelManager : NetworkBehaviour
 
         }
 
+        foreach (Transform rockPadTrigger in rockPadTriggers)
+        {
+
+            player1ReadyR = Physics.SphereCast(rockPadTrigger.position, radius, rockPadTrigger.transform.up, out hit, maxDistance, playerLayer, QueryTriggerInteraction.UseGlobal) && hit.collider.gameObject.GetComponent<PlayerMovement>().playerNum == 1;
+            player2ReadyR = Physics.SphereCast(rockPadTrigger.position, radius, rockPadTrigger.transform.up, out hit, maxDistance, playerLayer, QueryTriggerInteraction.UseGlobal) && hit.collider.gameObject.GetComponent<PlayerMovement>().playerNum == 2;
+
+        }
+
 
         if (player1ReadyF || player2ReadyF)
         {
@@ -101,6 +112,14 @@ public class LevelManager : NetworkBehaviour
             NetworkManager.singleton.ServerChangeScene("Water Level");
             SceneManager.LoadScene("Water Level");
 
+        } else if (player1ReadyR || player2ReadyR)
+        {
+
+            Debug.Log("Everyone is ready!");
+
+            NetworkManager.singleton.ServerChangeScene("Rock Level");
+            SceneManager.LoadScene("Rock Level");
+
         }
 
         // Check for level complete
@@ -110,8 +129,8 @@ public class LevelManager : NetworkBehaviour
             forestPadTriggers[1].transform.Find("OuterPart").GetComponent<Renderer>().sharedMaterial = materials[1];
         } else
         {
-           // forestPadTriggers[0].transform.Find("OuterPart").GetComponent<Renderer>().sharedMaterial = materials[0];
-            //forestPadTriggers[1].transform.Find("OuterPart").GetComponent<Renderer>().sharedMaterial = materials[0];
+            forestPadTriggers[0].transform.Find("OuterPart").GetComponent<Renderer>().sharedMaterial = materials[0];
+            forestPadTriggers[1].transform.Find("OuterPart").GetComponent<Renderer>().sharedMaterial = materials[0];
         }
 
         if (hostPlayer.completedWaterLevel)
@@ -123,6 +142,17 @@ public class LevelManager : NetworkBehaviour
         {
             waterPadTriggers[0].transform.Find("OuterPart").GetComponent<Renderer>().sharedMaterial = materials[0];
             waterPadTriggers[1].transform.Find("OuterPart").GetComponent<Renderer>().sharedMaterial = materials[0];
+        }
+
+        if (hostPlayer.completedRockLevel)
+        {
+            rockPadTriggers[0].transform.Find("OuterPart").GetComponent<Renderer>().sharedMaterial = materials[1];
+            rockPadTriggers[1].transform.Find("OuterPart").GetComponent<Renderer>().sharedMaterial = materials[1];
+        }
+        else
+        {
+            rockPadTriggers[0].transform.Find("OuterPart").GetComponent<Renderer>().sharedMaterial = materials[0];
+            rockPadTriggers[1].transform.Find("OuterPart").GetComponent<Renderer>().sharedMaterial = materials[0];
         }
 
     }

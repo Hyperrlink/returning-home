@@ -16,6 +16,7 @@ TagManager:
   - EndLevelPadTrigger
   - WaterLevelPadTrigger
   - PlayerConnectionObject
+  - RockLevelPadTrigger
   layers:
   - Default
   - TransparentFX

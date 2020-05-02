@@ -8,7 +8,7 @@ public class LaserPointer : MonoBehaviour
     public Transform startPos;
     public LineRenderer laserLineRenderer;
 
-    public int maxReflectionCount = 10;
+    public int maxReflectionCount = 30;
     public float maxStepDistance = 200f;
     public float laserWidth = 1f;
 

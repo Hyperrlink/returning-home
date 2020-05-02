@@ -57,11 +57,19 @@ public class PauseMenuController : NetworkBehaviour
         {
             player1Name.text = players[0].GetComponent<PlayerMovement>().playerName;
             player2Name.text = "Player not connected";
+            Debug.Log("Here");
         } else
         {
 
-            player1Name.text = players[0].GetComponent<PlayerMovement>().playerName;
-            player2Name.text = players[1].GetComponent<PlayerMovement>().playerName;
+            if (players[0].GetComponent<PlayerMovement>().playerNum == 1)
+            {
+                player1Name.text = players[0].GetComponent<PlayerMovement>().playerName;
+                player2Name.text = players[1].GetComponent<PlayerMovement>().playerName;
+            } else
+            {
+                player1Name.text = players[1].GetComponent<PlayerMovement>().playerName;
+                player2Name.text = players[0].GetComponent<PlayerMovement>().playerName;
+            }
 
         }
 
